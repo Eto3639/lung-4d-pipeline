@@ -122,19 +122,22 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-      - name: Post Slack message
+      - uses: actions/checkout@v4
+        if: env.SLACK_WEBHOOK_URL != ''
+      - uses: actions/setup-python@v5
+        if: env.SLACK_WEBHOOK_URL != ''
+        with:
+          python-version: '3.11'
+      - name: Stage site (for manifest)
+        if: env.SLACK_WEBHOOK_URL != ''
+        run: python scripts/build_pages.py --site-dir _site
+      - name: Post Slack Block Kit message
         if: env.SLACK_WEBHOOK_URL != ''
         env:
           PAGES_URL: ${{ needs.deploy.outputs.page_url || needs.build.outputs.pages_url }}
-          MANIFEST: ${{ needs.build.outputs.manifest_json }}
-        run: |
-          summary_text="DVF QA reports updated"
-          if [ -n "$MANIFEST" ]; then
-            runs=$(echo "$MANIFEST" | python -c "import sys, json; m=json.load(sys.stdin); print(', '.join(f\"{e['source']} (cases={e['headline']['cases']}, meanNCC={e['headline']['mean_ncc']:.3f})\" for e in m))")
-            summary_text="$summary_text — $runs"
-          fi
-          payload=$(jq -nc --arg t "$summary_text" --arg u "$PAGES_URL" '{text: ($t + "\n" + $u)}')
-          curl -sS -X POST -H 'Content-type: application/json' -d "$payload" "$SLACK_WEBHOOK_URL"
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+        run: python scripts/slack_notify.py --manifest _site/manifest.json
       - name: Skip notice
         if: env.SLACK_WEBHOOK_URL == ''
         run: echo "SLACK_WEBHOOK_URL not set; skipping Slack notification."

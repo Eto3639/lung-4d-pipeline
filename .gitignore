@@ -10,6 +10,13 @@ venv/
 outputs/dirlab_data/
 outputs/tcia_4d_lung_data/
 outputs/popi_data/
+DVF_predict/
+DynamicChestXray/
+
+# Local screenshots / scratch images
+*.png
+!docs/**/*.png
+!_site/**/*.png
 
 # Local scratch
 _scratch/

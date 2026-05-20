@@ -1,0 +1,38 @@
+{
+  "phase": "00",
+  "jac_min": -2.3272924423217773,
+  "jac_p01": 0.5103836059570312,
+  "jac_p05": 0.7459020376205445,
+  "jac_median": 0.9977774620056152,
+  "jac_mean": 1.0012316703796387,
+  "jac_p95": 1.2731366157531738,
+  "jac_p99": 1.5056419467926023,
+  "jac_max": 4.250322341918945,
+  "fraction_jac_le_0": 0.001333248,
+  "fraction_jac_lt_0_2": 0.002377664,
+  "fraction_jac_gt_5": 0.0,
+  "folding_component_count": 1707.0,
+  "largest_folding_component_ml": 18.708000000000002,
+  "dvf_magnitude_p95_mm": 9.200352668762207,
+  "dvf_magnitude_max_mm": 21.269683837890625,
+  "gradient_norm_mean": 0.2646942734718323,
+  "bending_energy_mean": 0.06096596751367187,
+  "qa_status": "FAIL",
+  "warped_vs_fixed_mse": 14869.874166393327,
+  "warped_vs_fixed_mae": 38.68383951461084,
+  "warped_vs_fixed_ncc": 0.9686395960194121,
+  "our_warp_vs_precomputed_mse": 14869.874166393327,
+  "our_warp_vs_precomputed_mae": 38.68383951461084,
+  "our_warp_vs_precomputed_ncc": 0.9686395960194121,
+  "ct_shape": [
+    256,
+    256,
+    256
+  ],
+  "dvf_spacing": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "edge_crop_voxels": 3
+}

@@ -71,11 +71,24 @@ def post(path: str, body: dict, token: str) -> dict:
 
 
 def case_to_page(row: dict, *, database_id: str, source: str, run_id: str, pages_base_url: str | None) -> dict:
+    """Dispatch on row schema: respiratory cycle pairing vs. DVF QA."""
+    if "phase" in row and "case_id" not in row:
+        return _dvf_row_to_page(row, database_id=database_id, source=source,
+                                run_id=run_id, pages_base_url=pages_base_url)
+    return _respiratory_row_to_page(row, database_id=database_id, source=source,
+                                    run_id=run_id, pages_base_url=pages_base_url)
+
+
+def _respiratory_row_to_page(row: dict, *, database_id: str, source: str,
+                              run_id: str, pages_base_url: str | None) -> dict:
     case_id = row.get("case_id") or row.get("case") or "unknown"
     ncc = row.get("best_pair_ncc")
     ap_hz = row.get("ap_dominant_frequency_hz")
     lat_hz = row.get("lateral_dominant_frequency_hz")
-    pages_url = f"{pages_base_url.rstrip('/')}/{case_id.split('-')[-1]}/report.html" if pages_base_url else None
+    pages_url = (
+        f"{pages_base_url.rstrip('/')}/{case_id.split('-')[-1]}/report.html"
+        if pages_base_url else None
+    )
     today = dt.date.today().isoformat()
 
     properties: dict = {
@@ -92,7 +105,31 @@ def case_to_page(row: dict, *, database_id: str, source: str, run_id: str, pages
         properties["Lat freq Hz"] = {"number": float(lat_hz)}
     if pages_url:
         properties["Pages URL"] = {"url": pages_url}
+    return {"parent": {"database_id": database_id}, "properties": properties}
 
+
+def _dvf_row_to_page(row: dict, *, database_id: str, source: str,
+                     run_id: str, pages_base_url: str | None) -> dict:
+    phase = str(row.get("phase", "?"))
+    qa_status = row.get("qa_status", "?")
+    title = f"DVF-QA phase {phase} ({qa_status})"
+    ncc = row.get("warped_vs_fixed_ncc")
+    pages_url = (
+        f"{pages_base_url.rstrip('/')}/phase_{phase}/report.html"
+        if pages_base_url else None
+    )
+    today = dt.date.today().isoformat()
+
+    properties: dict = {
+        "Title": {"title": [{"text": {"content": title}}]},
+        "Run ID": {"rich_text": [{"text": {"content": run_id}}]},
+        "Source": {"select": {"name": source}},
+        "Date": {"date": {"start": today}},
+    }
+    if isinstance(ncc, (int, float)):
+        properties["Best NCC"] = {"number": float(ncc)}
+    if pages_url:
+        properties["Pages URL"] = {"url": pages_url}
     return {"parent": {"database_id": database_id}, "properties": properties}
 
 
@@ -123,8 +160,9 @@ def main() -> int:
         body = case_to_page(row, database_id=db_id, source=args.source,
                             run_id=args.run_id, pages_base_url=args.pages_base_url)
         res = post("/pages", body, token)
-        created.append({"id": res.get("id"), "case": row.get("case_id")})
-        print(f"  uploaded {row.get('case_id')} -> {res.get('id')}")
+        label = row.get("case_id") or (f"phase {row['phase']}" if "phase" in row else "?")
+        created.append({"id": res.get("id"), "label": label})
+        print(f"  uploaded {label} -> {res.get('id')}")
     print(f"\nUploaded {len(created)} rows to Notion database {db_id}")
     return 0
 

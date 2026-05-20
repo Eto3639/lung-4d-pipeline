@@ -101,15 +101,16 @@ jobs:
             run_dir=$(dirname "$summary")
             run_name=$(basename "$run_dir")
             case "$run_name" in
-              dirlab_demo*) source_tag="DIR-Lab" ;;
-              tcia_4d_lung*) source_tag="TCIA" ;;
-              *) source_tag="other" ;;
+              dirlab_demo*)     source_tag="DIR-Lab" ;;
+              tcia_4d_lung*)    source_tag="TCIA" ;;
+              dvf_predict_qa*)  source_tag="DVF-Predict" ;;
+              *)                source_tag="other" ;;
             esac
             python scripts/notion_publish.py \
               --summary "$summary" \
               --source "$source_tag" \
               --run-id "${run_name}_${GITHUB_SHA::7}" \
-              --pages-base-url "${PAGES_URL}runs/${run_name}_$(stat -c %Y "$run_dir")"
+              --pages-base-url "${PAGES_URL}runs/${run_name}"
           done
       - name: Skip notice
         if: env.NOTION_API_KEY == ''

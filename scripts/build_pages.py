@@ -172,7 +172,11 @@ def main() -> int:
     for run_dir in runs:
         rows, headline = load_summary(run_dir)
         modified = dt.datetime.fromtimestamp(run_dir.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
-        run_id = args.run_id if (args.run_id and args.only and len(args.only) == 1) else f"{run_dir.name}_{run_dir.stat().st_mtime:.0f}"
+        # Stable run id: directory name only. Including the mtime made the id
+        # diverge between the build job (which deploys to Pages) and the
+        # notify-slack job (which composes links) because each does its own
+        # git checkout and gets fresh mtimes.
+        run_id = args.run_id if (args.run_id and args.only and len(args.only) == 1) else run_dir.name
         copy_run(run_dir, site_dir, run_id)
         manifest.append({
             "run_id": run_id,

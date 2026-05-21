@@ -1,0 +1,866 @@
+[
+  {
+    "phase": "00",
+    "modules": {
+      "TemporalMotion": {
+        "status": "FAIL",
+        "results": {
+          "jacobian_analysis": [
+            {
+              "phase_pair": "0->1",
+              "min_jacobian": 0.10086772968887375,
+              "max_jacobian": 4.404382426235358,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "1->2",
+              "min_jacobian": 0.37540844585571065,
+              "max_jacobian": 2.1871605709891377,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "2->3",
+              "min_jacobian": 0.575039533822788,
+              "max_jacobian": 1.5738668328018497,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "3->4",
+              "min_jacobian": 0.6055576021074035,
+              "max_jacobian": 1.5700803764250835,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "4->5",
+              "min_jacobian": 0.5680211910699077,
+              "max_jacobian": 1.6276358862202427,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "5->6",
+              "min_jacobian": 0.4129783166837008,
+              "max_jacobian": 1.602666661279687,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "6->7",
+              "min_jacobian": 0.11945850333928769,
+              "max_jacobian": 3.1278804840756997,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "7->8",
+              "min_jacobian": 0.11600611525273617,
+              "max_jacobian": 3.9213256552724176,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "8->9",
+              "min_jacobian": 0.27861197617057754,
+              "max_jacobian": 2.762131391893851,
+              "negative_jacobian_fraction": 0.0
+            }
+          ],
+          "trajectory_smoothness": 0.528243467157225
+        }
+      },
+      "RobustnessCheck": {
+        "status": "PASS",
+        "results": {
+          "snr": "2.0225353",
+          "snr_status": "PASS",
+          "fov_status": "PASS"
+        }
+      },
+      "GeomIntegrity": {
+        "status": "FAIL",
+        "results": {
+          "drr_ssim": 6.210651335898659e-06,
+          "drr_ncc": 0.25691110835889364,
+          "plot_overlay_path": "/tmp/overlay_ca2035ff605746e09d91e85c0226668e.png",
+          "z_continuity_score": 1.0,
+          "z_issues": [],
+          "landmark_deviations": {
+            "lung_centroid_diff_mm": 0.33485235488435394,
+            "bone_centroid_diff_mm": 1.7071815968081576
+          }
+        }
+      },
+      "DosimetricAccuracy": {
+        "status": "ERROR",
+        "results": {
+          "status": "ERROR",
+          "message": "Dose distributions missing"
+        }
+      }
+    }
+  },
+  {
+    "phase": "10",
+    "modules": {
+      "TemporalMotion": {
+        "status": "FAIL",
+        "results": {
+          "jacobian_analysis": [
+            {
+              "phase_pair": "0->1",
+              "min_jacobian": 0.10086772968887375,
+              "max_jacobian": 4.404382426235358,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "1->2",
+              "min_jacobian": 0.37540844585571065,
+              "max_jacobian": 2.1871605709891377,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "2->3",
+              "min_jacobian": 0.575039533822788,
+              "max_jacobian": 1.5738668328018497,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "3->4",
+              "min_jacobian": 0.6055576021074035,
+              "max_jacobian": 1.5700803764250835,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "4->5",
+              "min_jacobian": 0.5680211910699077,
+              "max_jacobian": 1.6276358862202427,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "5->6",
+              "min_jacobian": 0.4129783166837008,
+              "max_jacobian": 1.602666661279687,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "6->7",
+              "min_jacobian": 0.11945850333928769,
+              "max_jacobian": 3.1278804840756997,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "7->8",
+              "min_jacobian": 0.11600611525273617,
+              "max_jacobian": 3.9213256552724176,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "8->9",
+              "min_jacobian": 0.27861197617057754,
+              "max_jacobian": 2.762131391893851,
+              "negative_jacobian_fraction": 0.0
+            }
+          ],
+          "trajectory_smoothness": 0.528243467157225
+        }
+      },
+      "RobustnessCheck": {
+        "status": "PASS",
+        "results": {
+          "snr": "2.0156415",
+          "snr_status": "PASS",
+          "fov_status": "PASS"
+        }
+      },
+      "GeomIntegrity": {
+        "status": "FAIL",
+        "results": {
+          "drr_ssim": 7.325983512311535e-06,
+          "drr_ncc": 0.260716164103265,
+          "plot_overlay_path": "/tmp/overlay_8a1ef43e9375444789e551a69f8d56ff.png",
+          "z_continuity_score": 1.0,
+          "z_issues": [],
+          "landmark_deviations": {
+            "lung_centroid_diff_mm": 0.17770720815328722,
+            "bone_centroid_diff_mm": 2.0443408538531638
+          }
+        }
+      },
+      "DosimetricAccuracy": {
+        "status": "ERROR",
+        "results": {
+          "status": "ERROR",
+          "message": "Dose distributions missing"
+        }
+      }
+    }
+  },
+  {
+    "phase": "20",
+    "modules": {
+      "TemporalMotion": {
+        "status": "FAIL",
+        "results": {
+          "jacobian_analysis": [
+            {
+              "phase_pair": "0->1",
+              "min_jacobian": 0.10086772968887375,
+              "max_jacobian": 4.404382426235358,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "1->2",
+              "min_jacobian": 0.37540844585571065,
+              "max_jacobian": 2.1871605709891377,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "2->3",
+              "min_jacobian": 0.575039533822788,
+              "max_jacobian": 1.5738668328018497,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "3->4",
+              "min_jacobian": 0.6055576021074035,
+              "max_jacobian": 1.5700803764250835,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "4->5",
+              "min_jacobian": 0.5680211910699077,
+              "max_jacobian": 1.6276358862202427,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "5->6",
+              "min_jacobian": 0.4129783166837008,
+              "max_jacobian": 1.602666661279687,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "6->7",
+              "min_jacobian": 0.11945850333928769,
+              "max_jacobian": 3.1278804840756997,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "7->8",
+              "min_jacobian": 0.11600611525273617,
+              "max_jacobian": 3.9213256552724176,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "8->9",
+              "min_jacobian": 0.27861197617057754,
+              "max_jacobian": 2.762131391893851,
+              "negative_jacobian_fraction": 0.0
+            }
+          ],
+          "trajectory_smoothness": 0.528243467157225
+        }
+      },
+      "RobustnessCheck": {
+        "status": "FAIL",
+        "results": {
+          "snr": "1.9900166",
+          "snr_status": "FAIL",
+          "fov_status": "PASS"
+        }
+      },
+      "GeomIntegrity": {
+        "status": "FAIL",
+        "results": {
+          "drr_ssim": 5.759110948697382e-06,
+          "drr_ncc": 0.272609815351333,
+          "plot_overlay_path": "/tmp/overlay_7ca529f86fd34667b8d26dad5b35dc98.png",
+          "z_continuity_score": 1.0,
+          "z_issues": [],
+          "landmark_deviations": {
+            "lung_centroid_diff_mm": 0.06993299980847141,
+            "bone_centroid_diff_mm": 1.9329325015224008
+          }
+        }
+      },
+      "DosimetricAccuracy": {
+        "status": "ERROR",
+        "results": {
+          "status": "ERROR",
+          "message": "Dose distributions missing"
+        }
+      }
+    }
+  },
+  {
+    "phase": "30",
+    "modules": {
+      "TemporalMotion": {
+        "status": "FAIL",
+        "results": {
+          "jacobian_analysis": [
+            {
+              "phase_pair": "0->1",
+              "min_jacobian": 0.10086772968887375,
+              "max_jacobian": 4.404382426235358,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "1->2",
+              "min_jacobian": 0.37540844585571065,
+              "max_jacobian": 2.1871605709891377,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "2->3",
+              "min_jacobian": 0.575039533822788,
+              "max_jacobian": 1.5738668328018497,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "3->4",
+              "min_jacobian": 0.6055576021074035,
+              "max_jacobian": 1.5700803764250835,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "4->5",
+              "min_jacobian": 0.5680211910699077,
+              "max_jacobian": 1.6276358862202427,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "5->6",
+              "min_jacobian": 0.4129783166837008,
+              "max_jacobian": 1.602666661279687,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "6->7",
+              "min_jacobian": 0.11945850333928769,
+              "max_jacobian": 3.1278804840756997,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "7->8",
+              "min_jacobian": 0.11600611525273617,
+              "max_jacobian": 3.9213256552724176,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "8->9",
+              "min_jacobian": 0.27861197617057754,
+              "max_jacobian": 2.762131391893851,
+              "negative_jacobian_fraction": 0.0
+            }
+          ],
+          "trajectory_smoothness": 0.528243467157225
+        }
+      },
+      "RobustnessCheck": {
+        "status": "FAIL",
+        "results": {
+          "snr": "1.9300267",
+          "snr_status": "FAIL",
+          "fov_status": "PASS"
+        }
+      },
+      "GeomIntegrity": {
+        "status": "FAIL",
+        "results": {
+          "drr_ssim": 5.905668671422657e-06,
+          "drr_ncc": 0.2798450162893813,
+          "plot_overlay_path": "/tmp/overlay_46a0b76773cb4d578bdfe6cb4b99230c.png",
+          "z_continuity_score": 1.0,
+          "z_issues": [],
+          "landmark_deviations": {
+            "lung_centroid_diff_mm": 0.03988627235471428,
+            "bone_centroid_diff_mm": 1.5930090624043107
+          }
+        }
+      },
+      "DosimetricAccuracy": {
+        "status": "ERROR",
+        "results": {
+          "status": "ERROR",
+          "message": "Dose distributions missing"
+        }
+      }
+    }
+  },
+  {
+    "phase": "40",
+    "modules": {
+      "TemporalMotion": {
+        "status": "FAIL",
+        "results": {
+          "jacobian_analysis": [
+            {
+              "phase_pair": "0->1",
+              "min_jacobian": 0.10086772968887375,
+              "max_jacobian": 4.404382426235358,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "1->2",
+              "min_jacobian": 0.37540844585571065,
+              "max_jacobian": 2.1871605709891377,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "2->3",
+              "min_jacobian": 0.575039533822788,
+              "max_jacobian": 1.5738668328018497,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "3->4",
+              "min_jacobian": 0.6055576021074035,
+              "max_jacobian": 1.5700803764250835,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "4->5",
+              "min_jacobian": 0.5680211910699077,
+              "max_jacobian": 1.6276358862202427,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "5->6",
+              "min_jacobian": 0.4129783166837008,
+              "max_jacobian": 1.602666661279687,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "6->7",
+              "min_jacobian": 0.11945850333928769,
+              "max_jacobian": 3.1278804840756997,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "7->8",
+              "min_jacobian": 0.11600611525273617,
+              "max_jacobian": 3.9213256552724176,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "8->9",
+              "min_jacobian": 0.27861197617057754,
+              "max_jacobian": 2.762131391893851,
+              "negative_jacobian_fraction": 0.0
+            }
+          ],
+          "trajectory_smoothness": 0.528243467157225
+        }
+      },
+      "RobustnessCheck": {
+        "status": "FAIL",
+        "results": {
+          "snr": "1.9195796",
+          "snr_status": "FAIL",
+          "fov_status": "PASS"
+        }
+      },
+      "GeomIntegrity": {
+        "status": "FAIL",
+        "results": {
+          "drr_ssim": 4.96410514569766e-06,
+          "drr_ncc": 0.28636732433941847,
+          "plot_overlay_path": "/tmp/overlay_b8f4884b2020431699148d5efd1a0f81.png",
+          "z_continuity_score": 1.0,
+          "z_issues": [],
+          "landmark_deviations": {
+            "lung_centroid_diff_mm": 0.0074932707678058265,
+            "bone_centroid_diff_mm": 0.9982156195158297
+          }
+        }
+      },
+      "DosimetricAccuracy": {
+        "status": "ERROR",
+        "results": {
+          "status": "ERROR",
+          "message": "Dose distributions missing"
+        }
+      }
+    }
+  },
+  {
+    "phase": "60",
+    "modules": {
+      "TemporalMotion": {
+        "status": "FAIL",
+        "results": {
+          "jacobian_analysis": [
+            {
+              "phase_pair": "0->1",
+              "min_jacobian": 0.10086772968887375,
+              "max_jacobian": 4.404382426235358,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "1->2",
+              "min_jacobian": 0.37540844585571065,
+              "max_jacobian": 2.1871605709891377,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "2->3",
+              "min_jacobian": 0.575039533822788,
+              "max_jacobian": 1.5738668328018497,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "3->4",
+              "min_jacobian": 0.6055576021074035,
+              "max_jacobian": 1.5700803764250835,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "4->5",
+              "min_jacobian": 0.5680211910699077,
+              "max_jacobian": 1.6276358862202427,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "5->6",
+              "min_jacobian": 0.4129783166837008,
+              "max_jacobian": 1.602666661279687,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "6->7",
+              "min_jacobian": 0.11945850333928769,
+              "max_jacobian": 3.1278804840756997,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "7->8",
+              "min_jacobian": 0.11600611525273617,
+              "max_jacobian": 3.9213256552724176,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "8->9",
+              "min_jacobian": 0.27861197617057754,
+              "max_jacobian": 2.762131391893851,
+              "negative_jacobian_fraction": 0.0
+            }
+          ],
+          "trajectory_smoothness": 0.528243467157225
+        }
+      },
+      "RobustnessCheck": {
+        "status": "FAIL",
+        "results": {
+          "snr": "1.9195796",
+          "snr_status": "FAIL",
+          "fov_status": "PASS"
+        }
+      },
+      "GeomIntegrity": {
+        "status": "FAIL",
+        "results": {
+          "drr_ssim": 5.01079466433554e-06,
+          "drr_ncc": 0.28502471286823094,
+          "plot_overlay_path": "/tmp/overlay_e75d395ae3aa480bb37cf11cd6007617.png",
+          "z_continuity_score": 1.0,
+          "z_issues": [],
+          "landmark_deviations": {
+            "lung_centroid_diff_mm": 0.029129568554511275,
+            "bone_centroid_diff_mm": 0.942483532806277
+          }
+        }
+      },
+      "DosimetricAccuracy": {
+        "status": "ERROR",
+        "results": {
+          "status": "ERROR",
+          "message": "Dose distributions missing"
+        }
+      }
+    }
+  },
+  {
+    "phase": "70",
+    "modules": {
+      "TemporalMotion": {
+        "status": "FAIL",
+        "results": {
+          "jacobian_analysis": [
+            {
+              "phase_pair": "0->1",
+              "min_jacobian": 0.10086772968887375,
+              "max_jacobian": 4.404382426235358,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "1->2",
+              "min_jacobian": 0.37540844585571065,
+              "max_jacobian": 2.1871605709891377,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "2->3",
+              "min_jacobian": 0.575039533822788,
+              "max_jacobian": 1.5738668328018497,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "3->4",
+              "min_jacobian": 0.6055576021074035,
+              "max_jacobian": 1.5700803764250835,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "4->5",
+              "min_jacobian": 0.5680211910699077,
+              "max_jacobian": 1.6276358862202427,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "5->6",
+              "min_jacobian": 0.4129783166837008,
+              "max_jacobian": 1.602666661279687,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "6->7",
+              "min_jacobian": 0.11945850333928769,
+              "max_jacobian": 3.1278804840756997,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "7->8",
+              "min_jacobian": 0.11600611525273617,
+              "max_jacobian": 3.9213256552724176,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "8->9",
+              "min_jacobian": 0.27861197617057754,
+              "max_jacobian": 2.762131391893851,
+              "negative_jacobian_fraction": 0.0
+            }
+          ],
+          "trajectory_smoothness": 0.528243467157225
+        }
+      },
+      "RobustnessCheck": {
+        "status": "FAIL",
+        "results": {
+          "snr": "1.9300267",
+          "snr_status": "FAIL",
+          "fov_status": "PASS"
+        }
+      },
+      "GeomIntegrity": {
+        "status": "FAIL",
+        "results": {
+          "drr_ssim": 6.337321003658111e-06,
+          "drr_ncc": 0.27724573911942885,
+          "plot_overlay_path": "/tmp/overlay_60d032e1c4a34858862101c612ff1829.png",
+          "z_continuity_score": 1.0,
+          "z_issues": [],
+          "landmark_deviations": {
+            "lung_centroid_diff_mm": 0.08541020080928888,
+            "bone_centroid_diff_mm": 0.8200407386314599
+          }
+        }
+      },
+      "DosimetricAccuracy": {
+        "status": "ERROR",
+        "results": {
+          "status": "ERROR",
+          "message": "Dose distributions missing"
+        }
+      }
+    }
+  },
+  {
+    "phase": "80",
+    "modules": {
+      "TemporalMotion": {
+        "status": "FAIL",
+        "results": {
+          "jacobian_analysis": [
+            {
+              "phase_pair": "0->1",
+              "min_jacobian": 0.10086772968887375,
+              "max_jacobian": 4.404382426235358,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "1->2",
+              "min_jacobian": 0.37540844585571065,
+              "max_jacobian": 2.1871605709891377,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "2->3",
+              "min_jacobian": 0.575039533822788,
+              "max_jacobian": 1.5738668328018497,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "3->4",
+              "min_jacobian": 0.6055576021074035,
+              "max_jacobian": 1.5700803764250835,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "4->5",
+              "min_jacobian": 0.5680211910699077,
+              "max_jacobian": 1.6276358862202427,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "5->6",
+              "min_jacobian": 0.4129783166837008,
+              "max_jacobian": 1.602666661279687,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "6->7",
+              "min_jacobian": 0.11945850333928769,
+              "max_jacobian": 3.1278804840756997,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "7->8",
+              "min_jacobian": 0.11600611525273617,
+              "max_jacobian": 3.9213256552724176,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "8->9",
+              "min_jacobian": 0.27861197617057754,
+              "max_jacobian": 2.762131391893851,
+              "negative_jacobian_fraction": 0.0
+            }
+          ],
+          "trajectory_smoothness": 0.528243467157225
+        }
+      },
+      "RobustnessCheck": {
+        "status": "FAIL",
+        "results": {
+          "snr": "1.9900166",
+          "snr_status": "FAIL",
+          "fov_status": "PASS"
+        }
+      },
+      "GeomIntegrity": {
+        "status": "FAIL",
+        "results": {
+          "drr_ssim": 6.786630300572972e-06,
+          "drr_ncc": 0.2676468757133803,
+          "plot_overlay_path": "/tmp/overlay_6846f62ffa064f6785a836d4fd23eea1.png",
+          "z_continuity_score": 1.0,
+          "z_issues": [],
+          "landmark_deviations": {
+            "lung_centroid_diff_mm": 0.14410967963955476,
+            "bone_centroid_diff_mm": 1.2844089934247271
+          }
+        }
+      },
+      "DosimetricAccuracy": {
+        "status": "ERROR",
+        "results": {
+          "status": "ERROR",
+          "message": "Dose distributions missing"
+        }
+      }
+    }
+  },
+  {
+    "phase": "90",
+    "modules": {
+      "TemporalMotion": {
+        "status": "FAIL",
+        "results": {
+          "jacobian_analysis": [
+            {
+              "phase_pair": "0->1",
+              "min_jacobian": 0.10086772968887375,
+              "max_jacobian": 4.404382426235358,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "1->2",
+              "min_jacobian": 0.37540844585571065,
+              "max_jacobian": 2.1871605709891377,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "2->3",
+              "min_jacobian": 0.575039533822788,
+              "max_jacobian": 1.5738668328018497,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "3->4",
+              "min_jacobian": 0.6055576021074035,
+              "max_jacobian": 1.5700803764250835,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "4->5",
+              "min_jacobian": 0.5680211910699077,
+              "max_jacobian": 1.6276358862202427,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "5->6",
+              "min_jacobian": 0.4129783166837008,
+              "max_jacobian": 1.602666661279687,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "6->7",
+              "min_jacobian": 0.11945850333928769,
+              "max_jacobian": 3.1278804840756997,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "7->8",
+              "min_jacobian": 0.11600611525273617,
+              "max_jacobian": 3.9213256552724176,
+              "negative_jacobian_fraction": 0.0
+            },
+            {
+              "phase_pair": "8->9",
+              "min_jacobian": 0.27861197617057754,
+              "max_jacobian": 2.762131391893851,
+              "negative_jacobian_fraction": 0.0
+            }
+          ],
+          "trajectory_smoothness": 0.528243467157225
+        }
+      },
+      "RobustnessCheck": {
+        "status": "PASS",
+        "results": {
+          "snr": "2.0156415",
+          "snr_status": "PASS",
+          "fov_status": "PASS"
+        }
+      },
+      "GeomIntegrity": {
+        "status": "FAIL",
+        "results": {
+          "drr_ssim": 6.768532333834189e-06,
+          "drr_ncc": 0.2557768389148801,
+          "plot_overlay_path": "/tmp/overlay_6860f554d5ee4a1b863b38267f218f88.png",
+          "z_continuity_score": 1.0,
+          "z_issues": [],
+          "landmark_deviations": {
+            "lung_centroid_diff_mm": 0.25145176742259984,
+            "bone_centroid_diff_mm": 1.415143890670015
+          }
+        }
+      },
+      "DosimetricAccuracy": {
+        "status": "ERROR",
+        "results": {
+          "status": "ERROR",
+          "message": "Dose distributions missing"
+        }
+      }
+    }
+  }
+]

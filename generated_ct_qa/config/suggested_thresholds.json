@@ -1,0 +1,17 @@
+{
+    "RobustnessCheck": {
+        "snr_min": -0.20109197357976738
+    },
+    "GeomIntegrity": {
+        "drr_ssim_min": 0.0,
+        "z_continuity_score_min": 1.0
+    },
+    "DosimetricAccuracy": {
+        "gamma_3mm_3%_pass_rate_min": 0.9999999999920001,
+        "gamma_2mm_2%_pass_rate_min": 0.9999999999920001
+    },
+    "TemporalMotion": {
+        "smoothness_score_min": 0.3597110812150696,
+        "negative_jacobian_fraction_max": 0.0
+    }
+}

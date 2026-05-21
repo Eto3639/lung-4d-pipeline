@@ -1,0 +1,22 @@
+{
+    "RobustnessCheck": {
+        "snr_threshold": 2.0,
+        "fov_fill_factor": 0.2
+    },
+    "GeomIntegrity": {
+        "z_continuity_score_min": 0.8,
+        "drr_ssim_min": 0.8,
+        "drr_ncc_min": 0.8,
+        "landmark_diff_max_mm": 10.0
+    },
+    "DosimetricAccuracy": {
+        "gamma_3mm_3%_pass_rate_min": 0.90,
+        "gamma_2mm_2%_pass_rate_min": 0.85,
+        "delta_d95_percent_max": 5.0,
+        "delta_v20_percent_max": 5.0
+    },
+    "TemporalMotion": {
+        "smoothness_score_min": 0.8,
+        "negative_jacobian_fraction_max": 0.01
+    }
+}

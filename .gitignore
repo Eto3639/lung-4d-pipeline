@@ -16,6 +16,7 @@ DynamicChestXray_anon/
 
 # Patient-derived QA outputs — do not push to public repo / Pages
 outputs/dynamic_xray_phase_qa/
+outputs/dynamic_xray_pair_qa/
 
 # Local screenshots / scratch images
 *.png

@@ -1,0 +1,20 @@
+[
+  {
+    "phase": "00",
+    "fold_fraction": 0.001333248,
+    "fold_volume_ml": 20.832,
+    "image": "phase_00_folding.png"
+  },
+  {
+    "phase": "80",
+    "fold_fraction": 0.001091648,
+    "fold_volume_ml": 17.057,
+    "image": "phase_80_folding.png"
+  },
+  {
+    "phase": "90",
+    "fold_fraction": 0.00204352,
+    "fold_volume_ml": 31.93,
+    "image": "phase_90_folding.png"
+  }
+]

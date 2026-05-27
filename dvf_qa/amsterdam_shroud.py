@@ -188,6 +188,108 @@ def save_shroud_quicklook(
     plt.close(fig)
 
 
+def adaptive_search_band(
+    shroud: np.ndarray,
+    fps: float,
+    *,
+    respiratory_band: tuple[float, float] = (0.15, 0.6),
+    select_quantile: float = 0.7,
+    fallback_band: tuple[float, float] = (0.3, 1.0),
+    min_peak_ratio: float = 3.0,
+) -> tuple[float, float]:
+    """Auto-pick a ``search_band`` by scoring each shroud row's respiratory-band signal.
+
+    For every CC row of the shroud, compute the standard deviation after a
+    zero-phase band-pass filter restricted to the respiratory frequency range.
+    Rows whose score exceeds the ``select_quantile`` quantile become the
+    candidate diaphragm region; the band spans from min to max selected row
+    (with light padding). When no row stands out (``max / median`` score below
+    ``min_peak_ratio``) the function returns ``fallback_band`` so calling code
+    can still produce a signal — useful when the diaphragm has fully left the
+    field of view and the row scores are uniformly weak.
+    """
+    if shroud.ndim != 2:
+        raise ValueError(f"expected shroud (Z, T); got {shroud.shape}")
+    Z, T = shroud.shape
+    if Z < 8 or T < 8:
+        return fallback_band
+
+    centered = shroud - shroud.mean(axis=1, keepdims=True)
+    if fps > 2.0 * respiratory_band[1] and T >= 16:
+        sos = butter(3, respiratory_band, btype="bandpass", fs=fps, output="sos")
+        bp = sosfiltfilt(sos, centered, axis=1)
+        scores = bp.std(axis=1)
+    else:
+        scores = centered.std(axis=1)
+
+    median = float(np.median(scores))
+    peak = float(np.max(scores))
+    if median <= 0 or peak / max(median, 1e-9) < min_peak_ratio:
+        return fallback_band
+
+    threshold = float(np.quantile(scores, select_quantile))
+    mask = scores >= threshold
+    if mask.sum() < 4:
+        return fallback_band
+
+    # Keep only the largest contiguous run of high-score rows. Diaphragm
+    # signal is anatomically contiguous along CC; isolated row spikes are
+    # almost always noise that happens to pass the threshold.
+    labels, n_labels = ndi.label(mask)
+    if n_labels == 0:
+        return fallback_band
+    sizes = ndi.sum(mask, labels, index=np.arange(1, n_labels + 1))
+    largest = int(np.argmax(sizes)) + 1
+    selected = np.where(labels == largest)[0]
+
+    lo, hi = int(selected.min()), int(selected.max())
+    pad = max(1, (hi - lo) // 10)
+    lo = max(0, lo - pad)
+    hi = min(Z - 1, hi + pad)
+    return (lo / Z, (hi + 1) / Z)
+
+
+def respiratory_signal_adaptive(
+    frames: np.ndarray,
+    *,
+    fps: float,
+    respiratory_band: tuple[float, float] = (0.1, 0.6),
+    shroud_smoothing_sigma: float = 1.0,
+    detrend_order: int = 2,
+    selection_band: tuple[float, float] = (0.15, 0.6),
+    select_quantile: float = 0.7,
+    fallback_band: tuple[float, float] = (0.3, 1.0),
+    min_peak_ratio: float = 3.0,
+    return_band: bool = False,
+) -> ShroudResult | tuple[ShroudResult, tuple[float, float]]:
+    """``respiratory_signal`` with an auto-chosen ``search_band``.
+
+    Builds the shroud once, scores each row in the respiratory frequency
+    band, picks the rows that carry the signal, and feeds that range back as
+    ``search_band``. When ``return_band`` is True, also returns the selected
+    ``(lo, hi)`` fractions for diagnostics.
+    """
+    shroud = build_shroud(frames)
+    band = adaptive_search_band(
+        shroud, fps,
+        respiratory_band=selection_band,
+        select_quantile=select_quantile,
+        fallback_band=fallback_band,
+        min_peak_ratio=min_peak_ratio,
+    )
+    result = respiratory_signal(
+        frames,
+        fps=fps,
+        respiratory_band=respiratory_band,
+        search_band=band,
+        shroud_smoothing_sigma=shroud_smoothing_sigma,
+        detrend_order=detrend_order,
+    )
+    if return_band:
+        return result, band
+    return result
+
+
 def respiratory_signal_intensity_roi(
     frames: np.ndarray,
     *,
